@@ -7,8 +7,9 @@ import gsap from "gsap";
 import clsx from "clsx";
 import { useLocale } from "next-intl";
 
+
 const ThemeWave = () => {
-    const { theme, setTheme, resolvedTheme } = useTheme();
+    const { setTheme, resolvedTheme } = useTheme();
     const locale = useLocale();
     const isRTL = locale === "ar";
     const wave1Ref = useRef<HTMLDivElement>(null);

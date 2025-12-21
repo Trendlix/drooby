@@ -1,74 +1,41 @@
 @import "tailwindcss";
 
-/* main theme CSS */
 
-/* Light theme variables */
-:root {
-  --background: var(--color-main-whiteMarble);
-  --foreground: var(--color-main-blackCharcoal);
-
-  /* colors */
-  --color-main-boldGray: #666666;
+@theme {
+  --color-main-bold-gray: #666666;
   --color-main-white: #fff;
   --color-main-black: #000;
-  --color-main-mediterraneanGreen: #3a9a99;
-  --color-main-trueBlack: #0a0a0a;
-  --color-main-whiteMarble: #e5e7eb;
-  --color-main-matteBlack: #171717;
-  --color-main-myrtleGreen: #2d7a79;
-  --color-main-titaniumWhite: #f3f4f6;
-  --color-main-royalAqua: #00b8db;
-  --color-main-dodgerBlue: #2b7fff;
-  --color-main-brightEmeraldGreen: #00bc7d;
-  --color-main-blueGreen: #00bba7;
-  --color-main-antiFlashWhite: #f2f2f4;
-  --color-main-blackCharcoal: #212121;
-  --color-main-casualBlack: #181818;
+  --color-main-mediterranean-green: #3a9a99;
+  --color-main-true-black: #0a0a0a;
+  --color-main-white-marble: #e5e7eb;
+  --color-main-matte-black: #171717;
+  --color-main-myrtle-green: #2d7a79;
+  --color-main-titanium-white: #f3f4f6;
+  --color-main-royal-aqua: #00b8db;
+  --color-main-dodger-blue: #2b7fff;
+  --color-main-bright-emerald-green: #00bc7d;
+  --color-main-blue-green: #00bba7;
+  --color-main-anti-flash-white: #f2f2f4;
+  --color-main-black-charcoal: #212121;
+  --color-main-casual-black: #181818;
 
-  /* linears */
-  --linear-gradient-1: var(--background-linear-gradient-1);
-  --linear-gradient-2: var(--background-linear-gradient-2);
-  --linear-gradient-3: var(--background-linear-gradient-3);
+  --background: var(--color-main-white);
+  --foreground: var(--color-main-black);
+
+  --background-image-gradient-1: linear-gradient(90deg, #3a9a99, #2d7a79);
+  --background-image-gradient-2: linear-gradient(90deg, #00b8db, #2b7fff);
+  --background-image-gradient-3: linear-gradient(90deg, #00bc7d, #00bba7);
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
 
-/* Dark theme overrides */
-html.dark {
-  --background: var(--color-main-blackCharcoal);
-  --foreground: var(--color-main-whiteMarble);
+.dark {
+  --background: var(--color-main-black-charcoal);
+  --foreground: var(--color-main-white-marble);
 }
 
-/* Apply the variables to body */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-/* tailwind only */
-@theme {
-  /* colors */
-  --color-main-boldGray: var(--color-main-boldGray);
-  --color-main-white: var(--color-main-white);
-  --color-main-black: var(--color-main-black);
-  --color-main-mediterraneanGreen: var(--color-main-mediterraneanGreen);
-  --color-main-trueBlack: var(--color-main-trueBlack);
-  --color-main-whiteMarble: var(--color-main-whiteMarble);
-  --color-main-matteBlack: var(--color-main-matteBlack);
-  --color-main-myrtleGreen: var(--color-main-myrtleGreen);
-  --color-main-titaniumWhite: var(--color-main-titaniumWhite);
-  --color-main-royalAqua: var(--color-main-royalAqua);
-  --color-main-dodgerBlue: var(--color-main-dodgerBlue);
-  --color-main-brightEmeraldGreen: var(--color-main-brightEmeraldGreen);
-  --color-main-blueGreen: var(--color-main-blueGreen);
-  --color-main-antiFlashWhite: var(--color-main-antiFlashWhite);
-  --color-main-blackCharcoal: var(--color-main-blackCharcoal);
-  --color-main-casualBlack: var(--color-main-casualBlack);
-
-
-  /* linears */
-  --background-linear-gradient-1: linear-gradient(90deg, var(--color-main-mediterraneanGreen), var(--color-main-myrtleGreen));
-  --background-linear-gradient-2: linear-gradient(90deg, var(--color-main-royalAqua), var(--color-main-dodgerBlue));
-  --background-linear-gradient-3: linear-gradient(90deg, var(--color-main-brightEmeraldGreen), var(--color-main-blueGreen));
 }
