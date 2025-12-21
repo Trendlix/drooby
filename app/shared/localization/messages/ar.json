@@ -1,0 +1,27 @@
+{
+    "HomePage": {
+        "title": "مرحبا بالعالم!"
+    },
+    "Sidebar": {
+        "home": "الرئيسية",
+        "chat": "المحادثات",
+        "wishlist": "قائمة الأمنيات",
+        "wallet": "المحفظة",
+        "coupons": "الكوبونات",
+        "history": "السجل",
+        "recipients": "المستلمون",
+        "notifications": "التنبيهات",
+        "support": "الدعم",
+        "profile": "الملف الشخصي",
+        "home_desc": "الذهاب إلى الصفحة الرئيسية",
+        "chat_desc": "الذهاب إلى صفحة المحادثات",
+        "wishlist_desc": "الذهاب إلى قائمة الأمنيات",
+        "wallet_desc": "الذهاب إلى المحفظة",
+        "coupons_desc": "الذهاب إلى الكوبونات",
+        "history_desc": "الذهاب إلى السجل",
+        "recipients_desc": "الذهاب إلى المستلمين",
+        "notifications_desc": "الذهاب إلى التنبيهات",
+        "support_desc": "الذهاب إلى الدعم",
+        "profile_desc": "الذهاب إلى الملف الشخصي"
+    }
+}

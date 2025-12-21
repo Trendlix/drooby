@@ -1,0 +1,27 @@
+{
+    "HomePage": {
+        "title": "Hello world!"
+    },
+    "Sidebar": {
+        "home": "Home",
+        "chat": "Chat",
+        "wishlist": "Wishlist",
+        "wallet": "Wallet",
+        "coupons": "Coupons",
+        "history": "History",
+        "recipients": "Recipients",
+        "notifications": "Notifications",
+        "support": "Support",
+        "profile": "Profile",
+        "home_desc": "Go to homepage",
+        "chat_desc": "Go to chat page",
+        "wishlist_desc": "Go to wishlist page",
+        "wallet_desc": "Go to wallet page",
+        "coupons_desc": "Go to coupons page",
+        "history_desc": "Go to history page",
+        "recipients_desc": "Go to recipients page",
+        "notifications_desc": "Go to notifications page",
+        "support_desc": "Go to support page",
+        "profile_desc": "Go to profile page"
+    }
+}
