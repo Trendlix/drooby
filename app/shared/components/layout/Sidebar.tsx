@@ -6,67 +6,67 @@ import clsx from "clsx";
 import { useTranslations } from "next-intl";
 
 interface ISidebarItemProps {
-    route: IRouteItem;
+	route: IRouteItem;
 }
 
 const SidebarItem = ({ route }: ISidebarItemProps) => {
-    const t = useTranslations('Sidebar');
-    const pathname = usePathname();
-    const isActive = pathname === route.href;
+	const t = useTranslations("Sidebar");
+	const pathname = usePathname();
+	const isActive = pathname === route.href;
 
-    const Icon = route.icon;
+	const Icon = route.icon;
 
-    return (
-        <Link
-            href={route.href}
-            className={clsx(
-                "group relative flex items-center gap-3 px-4 py-3 rounded-xl capitalize transition-all duration-300 ease-in-out font-medium",
-                isActive
-                    ? "bg-main-mediterranean-green text-main-white shadow-lg shadow-main-mediterranean-green/20 scale-[1.02]"
-                    : "text-main-bold-gray dark:text-main-white-marble hover:text-main-mediterranean-green hover:bg-main-mediterranean-green/5 active:scale-95"
-            )}
-            aria-current={isActive ? "page" : undefined}
-            aria-label={t(route.title)}
-            title={t(`${route.title}_desc`)}
-        >
-            <Icon
-                size={22}
-                className={clsx(
-                    "transition-transform duration-300 group-hover:scale-110",
-                    isActive ? "text-main-white" : "text-main-bold-gray dark:text-main-white-marble"
-                )}
-            />
+	return (
+		<Link
+			href={route.href}
+			className={clsx(
+				"group relative flex items-center gap-3 px-4 py-3 rounded-xl capitalize transition-all duration-300 ease-in-out font-medium",
+				isActive
+					? "bg-main-mediterranean-green text-main-white shadow-lg shadow-main-mediterranean-green/20 scale-[1.02]"
+					: "text-main-bold-gray dark:text-main-white-marble hover:text-main-mediterranean-green hover:bg-main-mediterranean-green/5 active:scale-95"
+			)}
+			aria-current={isActive ? "page" : undefined}
+			aria-label={t(route.title)}
+			title={t(`${route.title}_desc`)}
+		>
+			<Icon
+				size={22}
+				className={clsx(
+					"transition-transform duration-300 group-hover:scale-110",
+					isActive
+						? "text-main-white"
+						: "text-main-bold-gray dark:text-main-white-marble"
+				)}
+			/>
 
-            <span className="truncate text-sm">
-                {t(route.title)}
-            </span>
+			<span className="truncate text-sm">{t(route.title)}</span>
 
-            {isActive && (
-                <span className="absolute end-3 w-1.5 h-1.5 rounded-full bg-main-white/40 animate-pulse" />
-            )}
-        </Link>
-    );
+			{isActive && (
+				<span className="absolute end-3 w-1.5 h-1.5 rounded-full bg-main-white/40 animate-pulse" />
+			)}
+		</Link>
+	);
 };
 
 export const Sidebar = () => {
-    const mainRoutes = Routes.slice(0, 6);
-    const secondaryRoutes = Routes.slice(6);
+	const mainRoutes = Routes.slice(0, 6);
+	const secondaryRoutes = Routes.slice(6);
 
-    return (
-        <aside className="w-64 h-screen p-4 border-e border-main-white-marble/60 dark:border-main-casual-black/60 flex flex-col sticky top-0 overflow-y-auto bg-main-titanium-white dark:bg-main-casual-black transition-colors duration-300">
-            <div className="flex flex-col gap-1">
-                {mainRoutes.map((route) => (
-                    <SidebarItem key={route.href} route={route} />
-                ))}
-            </div>
+	return (
+		<aside className="w-64 h-screen p-4 border-e border-main-white-marble/60 dark:border-main-casual-black/60 flex flex-col sticky top-0 overflow-y-auto bg-main-titanium-white dark:bg-main-casual-black transition-colors duration-300">
+			<div className="flex flex-col gap-1">
+				{mainRoutes.map((route) => (
+					<SidebarItem key={route.href} route={route} />
+				))}
+			</div>
 
-            <div className="my-4 border-t border-main-white-marble/60 dark:border-main-casual-black/60" />
+			<div className="my-4 border-t border-main-white-marble/60 dark:border-main-casual-black/60" />
 
-            <div className="flex flex-col gap-1">
-                {secondaryRoutes.map((route) => (
-                    <SidebarItem key={route.href} route={route} />
-                ))}
-            </div>
-        </aside>
-    );
+			<div className="flex flex-col gap-1">
+				{secondaryRoutes.map((route) => (
+					<SidebarItem key={route.href} route={route} />
+				))}
+			</div>
+		</aside>
+	);
 };
