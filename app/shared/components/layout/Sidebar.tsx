@@ -4,17 +4,20 @@ import { Link, usePathname } from "@/i18n/routing";
 import Routes, { IRouteItem } from "../../core/routes";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
+import { NOTIFICATION_COUNT } from "../../data/notifications/notificationConfig";
 
 interface ISidebarItemProps {
     route: IRouteItem;
+    badgeCount?: number;
 }
 
-const SidebarItem = ({ route }: ISidebarItemProps) => {
+const SidebarItem = ({ route, badgeCount }: ISidebarItemProps) => {
     const t = useTranslations('Sidebar');
     const pathname = usePathname();
     const isActive = pathname === route.href;
 
     const Icon = route.icon;
+    const showBadge = badgeCount !== undefined && badgeCount > 0 && route.href === "/notifications";
 
     return (
         <Link
@@ -37,11 +40,21 @@ const SidebarItem = ({ route }: ISidebarItemProps) => {
                 )}
             />
 
-            <span className="truncate text-sm">
+            <span className="truncate text-sm flex-1">
                 {t(route.title)}
             </span>
 
-            {isActive && (
+            {/* Notification Badge */}
+            {showBadge && (
+                <span className={clsx(
+                    "flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-full text-xs font-semibold text-white",
+                    isActive ? "bg-red-500" : "bg-red-500"
+                )}>
+                    {badgeCount > 99 ? "99+" : badgeCount}
+                </span>
+            )}
+
+            {isActive && !showBadge && (
                 <span className="absolute end-3 w-1.5 h-1.5 rounded-full bg-main-white/40 animate-pulse" />
             )}
         </Link>
@@ -51,12 +64,19 @@ const SidebarItem = ({ route }: ISidebarItemProps) => {
 export const Sidebar = () => {
     const mainRoutes = Routes.slice(0, 6);
     const secondaryRoutes = Routes.slice(6);
+    
+    // Get notification count from config - easily changeable
+    const notificationCount = NOTIFICATION_COUNT;
 
     return (
-        <aside className="w-64 h-screen p-4 border-e border-main-white-marble/60 dark:border-main-casual-black/60 flex flex-col sticky top-0 overflow-y-auto bg-main-titanium-white dark:bg-main-casual-black transition-colors duration-300">
+        <aside className="hidden lg:flex w-64 h-screen p-4 border-e border-main-white-marble/60 dark:border-main-casual-black/60 flex-col sticky top-0 overflow-y-auto bg-main-titanium-white dark:bg-main-casual-black transition-colors duration-300">
             <div className="flex flex-col gap-1">
                 {mainRoutes.map((route) => (
-                    <SidebarItem key={route.href} route={route} />
+                    <SidebarItem 
+                        key={route.href} 
+                        route={route} 
+                        badgeCount={route.href === "/notifications" ? notificationCount : undefined}
+                    />
                 ))}
             </div>
 
@@ -64,7 +84,11 @@ export const Sidebar = () => {
 
             <div className="flex flex-col gap-1">
                 {secondaryRoutes.map((route) => (
-                    <SidebarItem key={route.href} route={route} />
+                    <SidebarItem 
+                        key={route.href} 
+                        route={route}
+                        badgeCount={route.href === "/notifications" ? notificationCount : undefined}
+                    />
                 ))}
             </div>
         </aside>
