@@ -30,7 +30,7 @@ const FeatureCard = ({
 					<h4 className="text-lg text-main-matte-black font-semibold leading-7">
 						{feature.title}
 					</h4>
-					<p className="text-sm text-[#666666]">{feature.description}</p>
+					<p className="text-sm text-main-bold-gray">{feature.description}</p>
 				</div>
 				<div className="w-8 h-8 rounded-full bg-[#F3F4F6] grid place-items-center">
 					<Sparkles className="text-main-mediterranean-green w-4 h-4" />
