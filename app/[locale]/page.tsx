@@ -1,6 +1,7 @@
 import Header from "../shared/components/home/Header";
 import RecentComparisons from "../shared/components/home/RecentComparisons";
 import RecentlyViewed from "../shared/components/home/RecentlyViewed";
+import SavedChats from "../shared/components/home/SavedChats";
 import ShoppingProfiles from "../shared/components/home/ShoppingProfiles";
 
 const Page = () => {
@@ -17,6 +18,7 @@ const Page = () => {
 				<ShoppingProfiles />
 				<RecentComparisons />
 				<RecentlyViewed />
+				<SavedChats />
 			</div>
 		</section>
 	);
