@@ -1,9 +1,11 @@
+import WishlistClient from "@/app/shared/components/wishlist";
+
 const WishlistPage = () => {
-    return (
-        <div>
-            <h1>Wishlist</h1>
-        </div>
-    );
+	return (
+		<section className="px-8 py-12 h-full w-full max-w-375 mx-auto">
+			<WishlistClient />
+		</section>
+	);
 };
 
 export default WishlistPage;
