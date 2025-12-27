@@ -5,31 +5,27 @@ import { Sidebar } from "../shared/components/layout/Sidebar";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
-
 export default async function LocaleLayout({
-    children,
-    params
+	children,
+	params,
 }: {
-    children: React.ReactNode;
-    params: Promise<{ locale: string }>
+	children: React.ReactNode;
+	params: Promise<{ locale: string }>;
 }) {
+	const { locale } = await params;
 
-    const { locale } = await params;
+	const messages = await getMessages();
 
-    const messages = await getMessages();
-
-    return (
-        <ThemeProvider attribute="class" defaultTheme="light">
-            <NextIntlClientProvider messages={messages} locale={locale}>
-                <ThemeWave />
-                <ThemeSwitcher />
-                <div className="flex min-h-screen">
-                    <Sidebar />
-                    <main className="flex-1 p-6">
-                        {children}
-                    </main>
-                </div>
-            </NextIntlClientProvider>
-        </ThemeProvider>
-    );
+	return (
+		<ThemeProvider attribute="class" defaultTheme="light">
+			<NextIntlClientProvider messages={messages} locale={locale}>
+				<ThemeWave />
+				<ThemeSwitcher />
+				<div className="flex min-h-screen">
+					<Sidebar />
+					<main className="flex-1">{children}</main>
+				</div>
+			</NextIntlClientProvider>
+		</ThemeProvider>
+	);
 }
