@@ -23,7 +23,9 @@ export default async function LocaleLayout({
 				<ThemeSwitcher />
 				<div className="flex min-h-screen">
 					<Sidebar />
-					<main className="flex-1">{children}</main>
+					<main className="flex-1 max-w-screen overflow-x-hidden">
+						{children}
+					</main>
 				</div>
 			</NextIntlClientProvider>
 		</ThemeProvider>
