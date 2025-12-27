@@ -4,6 +4,7 @@ import { Link, usePathname } from "@/i18n/routing";
 import Routes, { IRouteItem } from "../../core/routes";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
+import { useWishlistStore } from "../../store/useWishlistStore";
 
 interface ISidebarItemProps {
 	route: IRouteItem;
@@ -15,6 +16,7 @@ const SidebarItem = ({ route }: ISidebarItemProps) => {
 	const isActive = pathname === route.href;
 
 	const Icon = route.icon;
+	const count = useWishlistStore((state) => state.count);
 
 	return (
 		<Link
@@ -43,6 +45,20 @@ const SidebarItem = ({ route }: ISidebarItemProps) => {
 
 			{isActive && (
 				<span className="absolute end-3 w-1.5 h-1.5 rounded-full bg-main-white/40 animate-pulse" />
+			)}
+			{route.href === "/wishlist" && count ? (
+				<div
+					className="w-[22.672px] h-5 rounded-lg px-2 py-0.5 absolute right-8 top-3.5 bg-[#CE0000] flex items-center justify-center"
+					style={{
+						background: "linear-gradient(90deg, #FB2C36 0%, #E7000B 100%)",
+						boxShadow:
+							"0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px -1px rgba(0, 0, 0, 0.10)",
+					}}
+				>
+					<p className="text-sm text-white">{count}</p>
+				</div>
+			) : (
+				""
 			)}
 		</Link>
 	);
