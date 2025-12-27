@@ -1,41 +1,49 @@
 @import "tailwindcss";
 
-
 @theme {
-  --color-main-bold-gray: #666666;
-  --color-main-white: #fff;
-  --color-main-black: #000;
-  --color-main-mediterranean-green: #3a9a99;
-  --color-main-true-black: #0a0a0a;
-  --color-main-white-marble: #e5e7eb;
-  --color-main-matte-black: #171717;
-  --color-main-myrtle-green: #2d7a79;
-  --color-main-titanium-white: #f3f4f6;
-  --color-main-royal-aqua: #00b8db;
-  --color-main-dodger-blue: #2b7fff;
-  --color-main-bright-emerald-green: #00bc7d;
-  --color-main-blue-green: #00bba7;
-  --color-main-anti-flash-white: #f2f2f4;
-  --color-main-black-charcoal: #212121;
-  --color-main-casual-black: #181818;
+	--color-main-bold-gray: #666666;
+	--color-main-white: #fff;
+	--color-main-black: #000;
+	--color-main-mediterranean-green: #3a9a99;
+	--color-main-true-black: #0a0a0a;
+	--color-main-white-marble: #e5e7eb;
+	--color-main-matte-black: #171717;
+	--color-main-myrtle-green: #2d7a79;
+	--color-main-titanium-white: #f3f4f6;
+	--color-main-royal-aqua: #00b8db;
+	--color-main-dodger-blue: #2b7fff;
+	--color-main-bright-emerald-green: #00bc7d;
+	--color-main-blue-green: #00bba7;
+	--color-main-anti-flash-white: #f2f2f4;
+	--color-main-black-charcoal: #212121;
+	--color-main-casual-black: #181818;
 
-  --background: var(--color-main-white);
-  --foreground: var(--color-main-black);
+	--background: var(--color-main-white);
+	--foreground: var(--color-main-black);
 
-  --background-image-gradient-1: linear-gradient(90deg, #3a9a99, #2d7a79);
-  --background-image-gradient-2: linear-gradient(90deg, #00b8db, #2b7fff);
-  --background-image-gradient-3: linear-gradient(90deg, #00bc7d, #00bba7);
+	--background-image-gradient-1: linear-gradient(90deg, #3a9a99, #2d7a79);
+	--background-image-gradient-2: linear-gradient(90deg, #00b8db, #2b7fff);
+	--background-image-gradient-3: linear-gradient(90deg, #00bc7d, #00bba7);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 .dark {
-  --background: var(--color-main-black-charcoal);
-  --foreground: var(--color-main-white-marble);
+	--background: var(--color-main-black-charcoal);
+	--foreground: var(--color-main-white-marble);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+	background: var(--background);
+	color: var(--foreground);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+.no-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
