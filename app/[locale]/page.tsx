@@ -1,4 +1,5 @@
 import Header from "../shared/components/home/Header";
+import ShoppingProfiles from "../shared/components/home/ShoppingProfiles";
 
 const Page = () => {
 	return (
@@ -11,6 +12,7 @@ const Page = () => {
 				}}
 			>
 				<Header />
+				<ShoppingProfiles />
 			</div>
 		</section>
 	);
