@@ -122,18 +122,18 @@ export default function ClientChatPage() {
 									{`Hello! I'm`}{" "}
 									<span className="text-main-mediterranean-green">Drooby</span>
 								</h2>
-								<p className="text-main-bold-gray dark:text-gray-400 max-w-2xl text-xl leading-6.5 mt-7">
+								<p className="text-main-bold-gray dark:text-gray-400 max-w-2xl leading-6.5 mt-7 px-4">
 									{`Your AI shopping assistant, tailored just for you. Find the best deals across all major stores in seconds.`}
 								</p>
 							</>
-							<div className=" flex-1">
-								<div className="mt-17.5 grid grid-cols-2 gap-5">
+							<div className="flex-1">
+								<div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-5">
 									{features.map((feature, i) => (
 										<FeatureCard feature={feature} key={i} />
 									))}
 								</div>
 							</div>
-							<div className="flex items-center gap-3">
+							<div className="hidden md:flex items-center gap-3">
 								{actions.map(({ icon: Icon, label }, index) => (
 									<button
 										key={index}

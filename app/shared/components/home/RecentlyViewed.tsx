@@ -49,7 +49,7 @@ const RecentlyViewed = () => {
 					<ArrowRight className="w-4 h-4 inline ml-1" />
 				</Link>
 			</div>
-			<div className="w-full mt-6 grid grid-cols-6 gap-4">
+			<div className="w-full mt-6 grid grid-flow-col 2xl:grid-cols-6 gap-4 overflow-x-auto no-scrollbar">
 				{categoryCards.map((category, i) => (
 					<CategoryCard category={category} key={i} />
 				))}
@@ -64,7 +64,7 @@ const CategoryCard = ({
 	category: { image: string; name: string; link: string };
 }) => {
 	return (
-		<div className="w-full">
+		<div className="w-[172px] 2xl:w-full">
 			<div className="w-full h-43 relative">
 				<Image
 					src={category.image}

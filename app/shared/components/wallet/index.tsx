@@ -13,17 +13,20 @@ import { useState } from "react";
 const Wallet = () => {
 	return (
 		<>
-			<div className="px-8 pb-6 space-y-3 border-b border-[#E5E7EB]">
-				<div className="pl-4 flex items-center justify-between">
-					<ArrowLeft className="text-black w-5 h-5" />
-					<h3 className="text-[#0A0A0A] leading-6 font-semibold">Wallet</h3>
-					<History className="text-black w-5 h-5" />
+			<div className="px-4 sm:px-8 pb-6 space-y-3 border-b border-[#E5E7EB]">
+				<div className="flex items-center justify-between">
+					<ArrowLeft className="w-5 h-5" />
+					<h3 className="font-semibold">Wallet</h3>
+					<History className="w-5 h-5" />
 				</div>
 			</div>
-			<div className="px-8 py-6 bg-[#F5F5F7]">
-				<Banner />
-				<Warning />
-				<WalletTransactions />
+
+			<div className="px-4 sm:px-8 py-6 bg-[#F5F5F7]">
+				<div className="max-w-screen-lg mx-auto space-y-6">
+					<Banner />
+					<Warning />
+					<WalletTransactions />
+				</div>
 			</div>
 		</>
 	);
@@ -31,35 +34,27 @@ const Wallet = () => {
 
 const Banner = () => {
 	return (
-		<div className="bg-main-mediterranean-green w-full h-auto flex flex-col gap-y-[48px] rounded-2xl p-6">
+		<div className="bg-main-mediterranean-green rounded-2xl p-5 sm:p-6 space-y-6">
 			<div className="flex items-center justify-between">
-				<div className="space-y-2">
-					<p className="text-white capitalize text-sm leading-5 tracking-[0.7px]">
-						Drooby Points
-					</p>
-					<h2 className="font-bold text-[24px] leading-8 mt-2 text-white leading-6">
-						450 Point
-					</h2>
+				<div>
+					<p className="text-white text-sm tracking-wide">Drooby Points</p>
+					<h2 className="text-2xl font-bold text-white">450 Point</h2>
 				</div>
 				<WalletIcon className="w-8 h-8 text-white" />
 			</div>
-			<div className="w-full grid grid-cols-3 gap-4 text-white">
-				<div className="bg-[#FFFFFF1A] p-3 rounded-2xl space-y-3">
-					<h4>Pending</h4>
-					<p className="text-xl font-semibold">120 Point</p>
-				</div>
-				<div className="bg-[#FFFFFF1A] p-3 rounded-2xl space-y-3">
-					<h4>Confirmed</h4>
-					<p className="text-xl font-semibold">120 Point</p>
-				</div>
-				<div className="bg-[#FFFFFF1A] p-3 rounded-2xl space-y-3">
-					<h4>Paid out</h4>
-					<p className="text-xl font-semibold">120 Point</p>
-				</div>
+
+			<div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-white">
+				{["Pending", "Confirmed", "Paid out"].map((label) => (
+					<div key={label} className="bg-[#FFFFFF1A] p-3 rounded-xl space-y-1">
+						<h4 className="text-sm">{label}</h4>
+						<p className="text-lg font-semibold">120 Point</p>
+					</div>
+				))}
 			</div>
+
 			<Link
 				href="/wallet/redeem-points"
-				className="w-full bg-white text-center p-3 text-main-mediterranean-green rounded-2xl"
+				className="block w-full bg-white text-center py-3 rounded-xl text-main-mediterranean-green font-medium"
 			>
 				<Gift className="inline w-5 h-5 mr-1" />
 				Redeem
@@ -146,45 +141,44 @@ const ProductCard = ({
 	};
 }) => {
 	return (
-		<div className="w-full h-auto bg-white px-3.5 py-4 border border-gray-100 shadow-xl rounded-2xl">
-			<div className="w-full items-stretch flex gap-6">
-				<div className="relative">
+		<div className="bg-white p-4 rounded-2xl shadow border border-[#E5E7EB]">
+			<div className="flex flex-col sm:flex-row gap-4">
+				<div className="relative w-full sm:w-[180px]">
 					<Image
 						src={card.image}
-						height={138}
-						width={200}
+						width={300}
+						height={200}
 						alt={card.title}
-						className="object-cover rounded-2xl h-full"
+						className="rounded-xl object-cover w-full h-[160px] sm:h-full"
 					/>
-					<div className="absolute left-2 top-3 text-center py-1 px-3 text-xs rounded-md flex items-center gap-1 bg-[#FEF3C6] text-[#BB4D00]">
-						<History className=" w-4 h-4" />
-						<p>{card.state}</p>
-					</div>
+					<span className="absolute top-2 left-2 bg-[#FEF3C6] text-[#BB4D00] text-xs px-2 py-1 rounded-md flex items-center gap-1">
+						<History className="w-3 h-3" />
+						{card.state}
+					</span>
 				</div>
 
-				<div className="flex-1 flex flex-col items-start justify-between gap-3 relative">
-					<div className="flex-1 space-y-3">
-						<h4 className="text-lg text-main-matte-black font-semibold leading-7">
-							{card.title}
-						</h4>
-						<div className="flex flex-row items-center gap-x-2">
-							<span className="inline">👤</span>
-							<div
-								className="px-3 py-1 w-[85px] rounded-xl border-2 border-[#0000001A] text-center text-sm text-main-bold-gray
-                        "
-							>
+				<div className="flex-1 flex flex-col justify-between gap-3">
+					<div className="space-y-2">
+						<h4 className="font-semibold text-lg">{card.title}</h4>
+
+						<div className="flex items-center gap-2 text-sm">
+							<span>👤</span>
+							<span className="border border-[#E5E7EB] px-2 py-0.5 rounded-lg">
 								{card.stores} stores
-							</div>
+							</span>
 						</div>
-						<p className="text-main-bold-gray leading-6 text-lg">{card.date}</p>
+
+						<p className="text-gray-500 text-sm">{card.date}</p>
 					</div>
-					<div className="w-full flex justify-between border-t border-[#F3F4F6] pt-2">
-						<p className="text-[#666] font-semibold">Purchase Amount</p>
-						<p className="text-main-mediterranean-green font-bold text-xl leading-5">
+
+					<div className="flex justify-between items-center border-t border-t-[#E5E7EB] pt-3">
+						<p className="text-sm text-gray-500">Purchase Amount</p>
+						<p className="font-bold text-main-mediterranean-green">
 							{card.price} SAR
 						</p>
 					</div>
-					<p className="absolute top-2 right-3 text-main-mediterranean-green font-bold text-xl leading-6">
+
+					<p className="self-end font-bold text-main-mediterranean-green">
 						+ {card.discount} Point
 					</p>
 				</div>
@@ -192,4 +186,5 @@ const ProductCard = ({
 		</div>
 	);
 };
+
 export default Wallet;

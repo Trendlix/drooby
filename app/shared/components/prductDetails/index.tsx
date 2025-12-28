@@ -115,33 +115,48 @@ const ProductSpecifications = () => {
 		},
 	];
 	return (
-		<div className="px-8 py-4 flex flex-col gap-y-4">
+		<div className="px-4 sm:px-8 py-4 flex flex-col gap-y-4">
+			{/* Title + Rating */}
 			<div className="space-y-2">
-				<h2 className="text-[25px] text-[#0A0A0A] leading-6 capitalize font-semibold">
+				<h2 className="text-[22px] sm:text-[25px] text-[#0A0A0A] leading-tight capitalize font-semibold break-words">
 					iPhone 15 Pro Max
 				</h2>
-				<div className="flex items-center gap-x-2 leading-6">
-					<Star className="fill-[#FFB900] text-white w-6 h-6" />
-					<p className="text-[#0A0A0A]">4.8</p>
-					<p className="text-[#666666]">(2341 reviews)</p>
+
+				<div className="flex flex-wrap items-center gap-x-2 gap-y-1 leading-6">
+					<Star className="fill-[#FFB900] text-white w-5 h-5 sm:w-6 sm:h-6" />
+					<p className="text-[#0A0A0A] text-sm sm:text-base">4.8</p>
+					<p className="text-[#666666] text-sm sm:text-base">(2341 reviews)</p>
 				</div>
 			</div>
-			<div className="flex items-center gap-x-3">
-				<p className="text-xl font-semibold text-main-mediterranean-green leading-6">
+
+			{/* Price */}
+			<div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+				<p className="text-lg sm:text-xl font-semibold text-main-mediterranean-green leading-6">
 					4,799 SAR
 				</p>
-				<p className="line-through text-[#666666] font-medium">4,999 SAR</p>
-				<p className="bg-[#D0FAE5] py-2 px-2 rounded-lg text-sm text-[#007A55] leading-4 capitalize">
+
+				<p className="line-through text-sm sm:text-base text-[#666666] font-medium">
+					4,999 SAR
+				</p>
+
+				<p className="bg-[#D0FAE5] py-1.5 px-2 rounded-lg text-xs sm:text-sm text-[#007A55] leading-4 capitalize">
 					save 200 SAR
 				</p>
 			</div>
-			<div className="grid grid-cols-2 gap-3">
+
+			{/* Benefits */}
+			<div className="grid grid-cols-2 gap-3 mt-3">
 				{benefits.map((benefit, i) => (
-					<div key={i} className="flex gap-x-2 leading-6">
-						<benefit.icon className="w-5 h-5 text-main-mediterranean-green" />
+					<div key={i} className="flex items-start gap-x-2 leading-6">
+						<benefit.icon className="w-5 h-5 text-main-mediterranean-green shrink-0 mt-0.5" />
+
 						<div className="space-y-1">
-							<p className="text-[#0A0A0A]">{benefit.title}</p>
-							<p className="text-[#666666]">{benefit.desc}</p>
+							<p className="text-sm sm:text-base text-[#0A0A0A]">
+								{benefit.title}
+							</p>
+							<p className="text-sm sm:text-base text-[#666666]">
+								{benefit.desc}
+							</p>
 						</div>
 					</div>
 				))}

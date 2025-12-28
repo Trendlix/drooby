@@ -37,7 +37,7 @@ const ShoppingProfiles = () => {
 					<ArrowRight className="w-4 h-4 inline ml-1" />
 				</Link>
 			</div>
-			<div className="w-full mt-6 grid grid-cols-3 gap-5">
+			<div className="w-full mt-6 grid grid-flow-col 2xl:grid-cols-3 gap-5 overflow-x-auto no-scrollbar ">
 				{profiles.map((profile, i) => (
 					<ProfileCard profile={profile} key={i} />
 				))}
@@ -58,7 +58,7 @@ const ProfileCard = ({
 	};
 }) => {
 	return (
-		<div className="w-full bg-white px-6 py-6 border border-gray-100 shadow-xl rounded-2xl">
+		<div className="w-[369px] 2xl:w-full bg-white px-6 py-6 border border-gray-100 shadow-xl rounded-2xl">
 			<div className="w-full flex gap-5 items-center">
 				<div
 					className="w-14 h-14 grid place-items-center rounded-2xl"

@@ -113,8 +113,8 @@ const ComparisonResults = () => {
 					</div>
 				</div>
 			</div>
-			<div className="flex px-8 py-6 gap-6">
-				<div className="w-[120px] h-[120px] bg-[#F3F4F6] rounded-2xl relative">
+			<div className="flex flex-col md:flex-row px-8 py-6 gap-6">
+				<div className="w-[120px] h-[120px] self-center md:self-start bg-[#F3F4F6] rounded-2xl relative">
 					<Image
 						src="/productDetails/iphone2.png"
 						fill
@@ -142,7 +142,7 @@ const ComparisonResults = () => {
 					</div>
 				</div>
 			</div>
-			<div className="bg-[#F5F5F7] w-full">
+			<div className="bg-[#F5F5F7] w-full pb-6">
 				<PriceAnalysis />
 				<div className="w-full flex flex-col gap-6 mt-4 px-8">
 					{compareResultsCards.map((card, i) => (

@@ -317,7 +317,7 @@ export const FilterItem = ({
 	return (
 		<div
 			className={clsx(
-				"h-12 px-4 text-center flex items-center justify-center gap-x-2 rounded-xl cursor-pointer transition-colors duration-200 ease-in-out",
+				"h-auto py-2 px-4 text-xs md:text-base text-center flex items-center justify-center gap-2 rounded-xl cursor-pointer transition-colors duration-200 ease-in-out",
 				{
 					"bg-main-mediterranean-green text-white": value === selected,
 					"font-medium": isCompare && value === selected,
@@ -331,7 +331,7 @@ export const FilterItem = ({
 			{count > 0 && (
 				<span
 					className={clsx(
-						"h-[22px]  rounded-[8px] bg-[#E5E7EB] text-[#898989] border border-[#00000000] text-xs py-0.5 px-2",
+						"hidden md:block h-[22px]  rounded-[8px] bg-[#E5E7EB] text-[#898989] border border-[#00000000] text-xs py-0.5 px-2",
 						{
 							"bg-[#FFFFFF33] text-white": value === selected,
 						}
@@ -356,61 +356,72 @@ const ProductCard = ({
 	};
 }) => {
 	return (
-		<div className="w-full h-auto bg-white px-3.5 py-4 border border-gray-100 shadow-xl rounded-2xl">
-			<div className="w-full flex gap-6">
+		<div className="w-full bg-white px-3.5 py-4 border border-gray-100 shadow-xl rounded-2xl">
+			<div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+				{/* Image */}
 				<Image
 					src={card.image}
-					height={170}
-					width={100}
+					height={140}
+					width={140}
 					alt={card.title}
-					className="object-cover rounded-2xl h-full"
+					className="object-cover rounded-2xl w-full sm:w-[140px]"
 				/>
 
-				<div className="w-full h-full">
-					<div className="flex flex-col items-start flex-1 gap-3 relative">
-						<h4 className="text-lg text-main-matte-black font-semibold leading-7">
-							{card.title}
-						</h4>
-						<div className="flex flex-row items-center gap-x-2">
-							<span className="inline">👤</span>
-							<div
-								className="px-3 py-1 w-[85px] rounded-xl border-2 border-[#0000001A] text-center text-sm text-main-bold-gray
-                        "
-							>
-								{card.stores} stores
-							</div>
+				{/* Content */}
+				<div className="flex flex-col flex-1 gap-3 relative">
+					<h4 className="text-base sm:text-lg font-semibold text-main-matte-black">
+						{card.title}
+					</h4>
+
+					<div className="flex items-center gap-2">
+						<span>👤</span>
+						<div className="px-3 py-1 rounded-xl border text-sm text-main-bold-gray">
+							{card.stores} stores
+						</div>
+					</div>
+
+					{/* Price + Actions */}
+					<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
+						<div className="flex items-center gap-3">
+							<p className="text-lg text-main-mediterranean-green">
+								{card.price} SAR
+							</p>
+
+							{card.discount && (
+								<p className="bg-[#D0FAE5] px-2 py-1 rounded-lg text-xs text-[#3A9A99]">
+									<ArrowDown className="inline w-3 h-3 mr-0.5" />
+									{card.discount} SAR
+								</p>
+							)}
 						</div>
 
-						<div
-							className="w-full flex justify-between py-4
-                    "
-						>
-							<div className="flex items-center gap-x-4">
-								<p className="text-xl text-main-mediterranean-green leading-6">
-									{card.price} SAR
-								</p>
-								{card.discount && (
-									<p className="bg-[#D0FAE5] py-2 px-2 rounded-lg text-sm text-[#3A9A99] leading-4">
-										<ArrowDown className="inline mr-0.5 w-3 h-3" />{" "}
-										{card.discount} SAR
-									</p>
-								)}
-							</div>
-							<div className="flex items-center gap-x-3.5">
-								<Link
-									href="/en"
-									className="w-[182px] px-4 py-3 text-center rounded-xl text-white text-sm font-medium leading-5 bg-main-mediterranean-green"
-								>
-									Compare
-								</Link>
+						<div className="flex items-center gap-3">
+							<Link
+								href="/en"
+								className="
+									w-full sm:w-auto
+									px-4 py-2
+									text-center
+									rounded-xl
+									text-white
+									text-sm
+									bg-main-mediterranean-green
+								"
+							>
+								Compare
+							</Link>
+
+							<button className="w-10 h-10 border border-[#00000057] rounded-xl grid place-items-center">
 								<Share2 className="w-4 h-4 text-[#666666]" />
-							</div>
+							</button>
 						</div>
-						<Trash2 className="absolute top-2 right-3 text-red-600 w-5 h-5" />
 					</div>
+
+					<Trash2 className="absolute top-2 right-2 text-red-600 w-5 h-5" />
 				</div>
 			</div>
 		</div>
 	);
 };
+
 export default WishlistClient;

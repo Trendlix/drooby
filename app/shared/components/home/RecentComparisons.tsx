@@ -42,7 +42,7 @@ const RecentComparisons = () => {
 					<ArrowRight className="w-4 h-4 inline ml-1" />
 				</Link>
 			</div>
-			<div className="w-full mt-6 grid grid-cols-3 gap-5">
+			<div className="w-full mt-6 grid grid-flow-col 2xl:grid-cols-3 no-scrollbar gap-5 overflow-x-auto">
 				{comparisonCards.map((card, i) => (
 					<ComparisonCard card={card} key={i} />
 				))}
@@ -63,7 +63,7 @@ const ComparisonCard = ({
 	};
 }) => {
 	return (
-		<div className="w-full h-auto bg-white px-3.5 py-4 border border-gray-100 shadow-xl rounded-2xl">
+		<div className="w-[368px] 2xl:w-full h-auto bg-white px-3.5 py-4 border border-gray-100 shadow-xl rounded-2xl">
 			<div className="w-full flex gap-3 items-center">
 				<Image
 					src={card.image}
