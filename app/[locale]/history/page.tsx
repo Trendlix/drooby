@@ -1,9 +1,11 @@
+import History from "@/app/shared/components/history";
+
 const HistoryPage = () => {
-    return (
-        <div>
-            <h1>History</h1>
-        </div>
-    );
+	return (
+		<section className="pt-8 h-full w-full flex flex-col">
+			<History />
+		</section>
+	);
 };
 
 export default HistoryPage;
