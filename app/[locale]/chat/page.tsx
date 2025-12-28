@@ -1,9 +1,7 @@
+import ClientChatPage from "@/app/shared/components/chat";
+
 const ChatPage = () => {
-    return (
-        <div>
-            <h1>Chat</h1>
-        </div>
-    );
+	return <ClientChatPage />;
 };
 
 export default ChatPage;
