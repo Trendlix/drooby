@@ -1,17 +1,14 @@
 "use client";
+import { Link } from "@/i18n/routing";
 import clsx from "clsx";
 import {
-	ArrowDown,
 	ArrowLeft,
 	Gift,
 	History,
 	Info,
-	Share2,
-	Trash2,
 	Wallet as WalletIcon,
 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 const Wallet = () => {
 	return (
@@ -60,10 +57,13 @@ const Banner = () => {
 					<p className="text-xl font-semibold">120 Point</p>
 				</div>
 			</div>
-			<button className="w-full bg-white text-center p-3 text-main-mediterranean-green rounded-2xl">
+			<Link
+				href="/wallet/redeem-points"
+				className="w-full bg-white text-center p-3 text-main-mediterranean-green rounded-2xl"
+			>
 				<Gift className="inline w-5 h-5 mr-1" />
 				Redeem
-			</button>
+			</Link>
 		</div>
 	);
 };
