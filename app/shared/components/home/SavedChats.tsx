@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
@@ -74,21 +75,32 @@ const SavedChats = () => {
 	);
 };
 
-const ChatCard = ({
+export const ChatCard = ({
 	name,
 	description,
 	link,
+	className,
+	isHistory = false,
 }: {
 	name: string;
 	description: string;
 	link: string;
+	className?: string;
+	isHistory?: boolean;
 }) => {
 	return (
 		<div
-			className="w-[150px] bg-[#F5F5F7] rounded-3xl pt-7.5 pb-3 px-4
-                    flex flex-col items-center justify-between gap-y-6"
+			className={clsx(
+				"w-[150px] bg-[#F5F5F7] rounded-3xl pt-7.5 pb-3 px-4 flex flex-col items-center justify-between gap-y-6",
+				className
+			)}
 		>
-			<div className="w-full text-center">
+			<div
+				className={clsx("w-full", {
+					"text-left": isHistory,
+					"text-center": !isHistory,
+				})}
+			>
 				<p className="text-[#0A0A0A] font-semibold">{name}</p>
 				<p
 					className="text-[#9D9D9D] text-xs font-medium mt-2
