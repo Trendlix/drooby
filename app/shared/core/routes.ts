@@ -20,7 +20,12 @@ export interface IRouteItem {
 }
 
 const Routes: IRouteItem[] = [
-	{ title: "home", href: "/", description: "Go to homepage", icon: HomeIcone },
+	{
+		title: "home",
+		href: "/en",
+		description: "Go to homepage",
+		icon: HomeIcone,
+	},
 	{
 		title: "chat",
 		href: "/chat",
