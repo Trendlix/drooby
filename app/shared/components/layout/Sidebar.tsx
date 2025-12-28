@@ -14,7 +14,7 @@ const SidebarItem = ({ route }: ISidebarItemProps) => {
 	const t = useTranslations("Sidebar");
 	const pathname = usePathname();
 	const isActive =
-		pathname === route.href ||
+		pathname.includes(route.href) ||
 		(route.title === "home" &&
 			(pathname.includes("/products") || pathname.includes("/compare")));
 
@@ -23,7 +23,7 @@ const SidebarItem = ({ route }: ISidebarItemProps) => {
 
 	return (
 		<Link
-			href={route.href}
+			href={route.href === "/en" ? "/" : route.href}
 			className={clsx(
 				"group relative flex items-center gap-3 px-4 py-3 rounded-xl capitalize transition-all duration-300 ease-in-out font-medium",
 				isActive
