@@ -7,32 +7,32 @@ export const categoryCards = [
 	{
 		name: "Sneakers",
 		image: "/home/shirt4.jpg",
-		link: "/en",
+		link: "/en/products/sneakers",
 	},
 	{
 		name: "Running Shoes",
 		image: "/home/shirt5.jpg",
-		link: "/en",
+		link: "/en/products/shirts",
 	},
 	{
 		name: "Sports Shoes",
 		image: "/home/shirt6.jpg",
-		link: "/en-shirts",
+		link: "/en-shirts/shoes",
 	},
 	{
 		name: "Sports Shoes",
 		image: "/home/shirt7.jpg",
-		link: "/en",
+		link: "/en/products/shoes",
 	},
 	{
 		name: "Sports Shoes",
 		image: "/home/scarf.jpg",
-		link: "/en",
+		link: "/en/products/scarf",
 	},
 	{
 		name: "Jeans",
 		image: "/home/jacket.jpg",
-		link: "/en",
+		link: "/en/products/jeans",
 	},
 ];
 
