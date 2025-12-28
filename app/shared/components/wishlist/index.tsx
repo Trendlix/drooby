@@ -297,7 +297,7 @@ const WishlistClient = () => {
 	);
 };
 
-const FilterItem = ({
+export const FilterItem = ({
 	count,
 	title,
 	selected,
