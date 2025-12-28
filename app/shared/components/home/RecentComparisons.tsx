@@ -9,18 +9,21 @@ export const comparisonCards = [
 		stores: 2,
 		price: 122,
 		title: "Women's Twill Cotton Half",
+		href: "/en/compare/shirt",
 	},
 	{
 		image: "/home/shirt2.png",
 		stores: 4,
 		price: 4799,
 		title: "Classic Linen Button Shirt",
+		href: "/en/compare/shirt",
 	},
 	{
 		image: "/home/shirt3.png",
 		stores: 5,
 		price: 4799,
 		title: "Oversized Casual Denim Shirt",
+		href: "/en/compare/shirt",
 	},
 ];
 
@@ -56,6 +59,7 @@ const ComparisonCard = ({
 		title: string;
 		price: number;
 		stores: number;
+		href: string;
 	};
 }) => {
 	return (
@@ -89,7 +93,7 @@ const ComparisonCard = ({
 						>
 							<div className="flex-1">
 								<Link
-									href="/en"
+									href={card.href ?? "/en"}
 									className="px-4 py-3 text-center rounded-xl text-white text-sm font-medium leading-5 bg-main-mediterranean-green"
 								>
 									View Comparison
