@@ -1,4 +1,4 @@
-import ComparisonResults from "@/app/shared/comapre";
+import ComparisonResults from "@/app/shared/components/compare";
 import React from "react";
 
 const ComparisonResultsPage = () => {
