@@ -1,5 +1,5 @@
 import { ThemeProvider } from "next-themes";
-import ThemeSwitcher from "../shared/components/layout/ThemeSwitcher";
+// import ThemeSwitcher from "../shared/components/layout/ThemeSwitcher";
 import ThemeWave from "../shared/components/layout/ThemeWave";
 import { Sidebar } from "../shared/components/layout/Sidebar";
 import { NextIntlClientProvider } from "next-intl";
@@ -20,7 +20,7 @@ export default async function LocaleLayout({
 		<ThemeProvider attribute="class" defaultTheme="light">
 			<NextIntlClientProvider messages={messages} locale={locale}>
 				<ThemeWave />
-				<ThemeSwitcher />
+				{/* <ThemeSwitcher /> */}
 				<div className="flex min-h-screen">
 					<Sidebar />
 					<main className="flex-1 max-w-screen overflow-x-hidden">
