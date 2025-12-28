@@ -13,7 +13,10 @@ interface ISidebarItemProps {
 const SidebarItem = ({ route }: ISidebarItemProps) => {
 	const t = useTranslations("Sidebar");
 	const pathname = usePathname();
-	const isActive = pathname === route.href;
+	const isActive =
+		pathname === route.href ||
+		(route.title === "home" &&
+			(pathname.includes("/products") || pathname.includes("/compare")));
 
 	const Icon = route.icon;
 	const count = useWishlistStore((state) => state.count);
@@ -69,7 +72,7 @@ export const Sidebar = () => {
 	const secondaryRoutes = Routes.slice(6);
 
 	return (
-		<aside className="w-64 h-screen p-4 border-e border-main-white-marble/60 dark:border-main-casual-black/60 flex flex-col sticky top-0 overflow-y-auto bg-main-titanium-white dark:bg-main-casual-black transition-colors duration-300">
+		<aside className="w-64 h-screen p-4 border-e border-main-white-marble/60 dark:border-main-casual-black/60 flex flex-col sticky top-0 overflow-y-auto bg-white dark:bg-main-casual-black transition-colors duration-300">
 			<div className="flex flex-col gap-1">
 				{mainRoutes.map((route) => (
 					<SidebarItem key={route.href} route={route} />
