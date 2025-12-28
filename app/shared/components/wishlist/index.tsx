@@ -317,10 +317,10 @@ export const FilterItem = ({
 	return (
 		<div
 			className={clsx(
-				"h-12 px-4 text-center flex items-center justify-center gap-x-2 rounded-2xl cursor-pointer transition-colors duration-200 ease-in-out",
+				"h-12 px-4 text-center flex items-center justify-center gap-x-2 rounded-xl cursor-pointer transition-colors duration-200 ease-in-out",
 				{
 					"bg-main-mediterranean-green text-white": value === selected,
-					"font-semibold": isCompare && value === selected,
+					"font-medium": isCompare && value === selected,
 					"bg-[#FBFBFB] text-[#828282]": value !== selected && isCompare,
 					"bg-[#F3F4F6] text-black": !isCompare && value !== selected,
 				}
