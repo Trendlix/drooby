@@ -30,8 +30,8 @@ export const comparisonCards = [
 const RecentComparisons = () => {
 	return (
 		<div className="w-full">
-			<div className="w-full flex justify-between">
-				<h2 className="font-medium text-[24px] leading-8">
+			<div className="w-full flex items-center justify-between">
+				<h2 className="font-medium text-xl md:text-[24px] leading-8">
 					Recent Comparisons
 				</h2>
 				<Link
