@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import DragScrollRow from "../layout/DragScrollRow";
 
 export const profiles = [
 	{
@@ -39,11 +40,11 @@ const ShoppingProfiles = () => {
 					<ArrowRight className="w-4 h-4 inline ml-1" />
 				</Link>
 			</div>
-			<div className="w-full mt-6 grid grid-flow-col 2xl:grid-cols-3 gap-5 overflow-x-auto no-scrollbar ">
+			<DragScrollRow className="mt-6 grid grid-flow-col 2xl:grid-cols-3 gap-5 cursor-grab 2xl:cursor-auto">
 				{profiles.map((profile, i) => (
 					<ProfileCard profile={profile} key={i} />
 				))}
-			</div>
+			</DragScrollRow>
 		</div>
 	);
 };

@@ -1,5 +1,7 @@
+"use client";
 import { ArrowLeft, Heart } from "lucide-react";
 import { ChatCard, savedChatsItems } from "../home/SavedChats";
+import DragScrollRow from "../layout/DragScrollRow";
 
 const History = () => {
 	const historyChats = [
@@ -49,7 +51,7 @@ const History = () => {
 						<h3 className="text-[#17171787] leading-7 font-semibold">
 							{item.date}
 						</h3>
-						<div className="w-full mt-1 pb-3 no-scrollbar grid grid-flow-col gap-5 overflow-x-auto">
+						<DragScrollRow>
 							{savedChatsItems.map((chat, i) => (
 								<ChatCard
 									{...chat}
@@ -58,7 +60,7 @@ const History = () => {
 									isHistory
 								/>
 							))}
-						</div>
+						</DragScrollRow>
 					</div>
 				))}
 			</div>
