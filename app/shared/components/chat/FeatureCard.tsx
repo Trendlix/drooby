@@ -14,7 +14,7 @@ const FeatureCard = ({
 	};
 }) => {
 	return (
-		<div className="w-101.5 bg-white px-6 py-6 border border-gray-100 shadow-xl rounded-2xl">
+		<div className=" bg-white px-6 py-6 border border-gray-100 shadow-xl rounded-2xl">
 			<div className="w-full flex gap-5">
 				<div
 					className="w-[56px] h-[56px] grid place-items-center rounded-2xl"
