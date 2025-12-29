@@ -163,7 +163,7 @@ const CouponCard = ({
 
 					<button
 						onClick={handleCopy}
-						className="flex items-center gap-1 text-xs text-main-mediterranean-green hover:opacity-80 cursor-pointer"
+						className="flex items-center gap-1 text-xs text-main-mediterranean-green hover:opacity-80 cursor-pointer bg-white px-4 py-2 rounded-[8px] border border-main-mediterranean-green"
 					>
 						<Copy className="w-3.5 h-3.5" />
 						Copy
