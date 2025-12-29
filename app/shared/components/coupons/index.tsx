@@ -5,8 +5,10 @@ import { FilterItem } from "../wishlist";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const CouponsClient = () => {
+	const router = useRouter();
 	const coupons = [
 		{
 			discount: 100,
@@ -41,16 +43,20 @@ const CouponsClient = () => {
 		if (filter === "used") return coupons.filter((c) => !c.isActive);
 		return coupons;
 	}, [filter]);
+
 	return (
 		<>
 			<div className="px-8 py-3 space-y-3">
 				<div className="pl-4 flex items-center justify-between">
-					<ArrowLeft className="text-black w-5 h-5" />
+					<ArrowLeft
+						className="text-black w-5 h-5 cursor-pointer"
+						onClick={() => router.back()}
+					/>
 					<h3 className="text-[#0A0A0A] leading-6">Coupons</h3>
 					<Search className="w-5 h-5 text-black" />
 				</div>
 			</div>
-			<div className="px-8 pb-4 w-full flex items-center gap-2 border-b border-[#E5E7EB]">
+			<div className="px-8 py-4 w-full flex items-center gap-2 border-b border-[#E5E7EB]">
 				<FilterItem
 					count={coupons.length}
 					title="All Coupons"

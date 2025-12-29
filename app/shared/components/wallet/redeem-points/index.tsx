@@ -11,6 +11,7 @@ import {
 import Image from "next/image";
 import React, { useState } from "react";
 import { FilterItem } from "../../wishlist";
+import { useRouter } from "next/navigation";
 
 const redeemCards = [
 	{
@@ -39,11 +40,15 @@ const redeemCards = [
 	},
 ];
 const RedeemPoints = () => {
+	const router = useRouter();
 	return (
 		<>
 			<div className="px-8 pb-8 space-y-8 border-b border-[#E5E7EB]">
 				<div className="pl-4 flex items-center justify-between">
-					<ArrowLeft className="text-black w-5 h-5" />
+					<ArrowLeft
+						className="text-black w-5 h-5 cursor-pointer"
+						onClick={() => router.back()}
+					/>
 					<h3 className="text-[#0A0A0A] leading-6 font-semibold">
 						Redeem Points
 					</h3>
