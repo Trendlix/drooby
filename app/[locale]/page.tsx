@@ -6,7 +6,7 @@ import ShoppingProfiles from "../shared/components/home/ShoppingProfiles";
 
 const Page = () => {
 	return (
-		<section className="px-8 py-12 h-full w-full max-w-375 mx-auto">
+		<section className="px-6 py-8 md:px-8 md:py-12 h-full w-full">
 			<div
 				className="flex flex-col gap-y-12"
 				style={{
