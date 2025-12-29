@@ -115,10 +115,10 @@ export default function ClientChatPage() {
 			<main className="h-full flex-1 overflow-y-auto">
 				<div className="h-full max-w-4xl mx-auto">
 					{messages.length === 0 ? (
-						<div className="flex flex-col items-center justify-center h-full text-center pt-16 pb-5">
+						<div className="flex flex-col items-center justify-center h-full text-center pt-12 lg:pt-16 pb-5 px-8">
 							<>
 								<Logo />
-								<h2 className="text-[48px] font-semibold text-main-matte-black dark:text-white mt-8 leading-12 -tracking-[1.2px]">
+								<h2 className="text-4xl md:text-[48px] font-semibold text-main-matte-black dark:text-white mt-8 leading-12 -tracking-[1.2px]">
 									{`Hello! I'm`}{" "}
 									<span className="text-main-mediterranean-green">Drooby</span>
 								</h2>
@@ -127,7 +127,7 @@ export default function ClientChatPage() {
 								</p>
 							</>
 							<div className="flex-1">
-								<div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-5">
+								<div className="mt-4 md:mt-10 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-5">
 									{features.map((feature, i) => (
 										<FeatureCard feature={feature} key={i} />
 									))}
