@@ -52,7 +52,7 @@ const RecentlyViewed = () => {
 					<ArrowRight className="w-4 h-4 inline ml-1" />
 				</Link>
 			</div>
-			<DragScrollRow className="mt-6 grid grid-flow-col 2xl:grid-cols-3 gap-5 cursor-grab 2xl:cursor-auto">
+			<DragScrollRow className="mt-6 grid grid-flow-col 2xl:grid-cols-6 gap-5 cursor-grab 2xl:cursor-auto">
 				{categoryCards.map((category, i) => (
 					<CategoryCard category={category} key={i} />
 				))}
