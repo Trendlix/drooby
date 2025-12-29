@@ -12,7 +12,8 @@ interface ISidebarItemProps {
 
 const SidebarItem = ({ route }: ISidebarItemProps) => {
 	const t = useTranslations("Sidebar");
-	const pathname = usePathname();
+	let pathname = usePathname();
+	pathname = pathname === "/" ? "/en" : pathname;
 	const isActive =
 		pathname.includes(route.href) ||
 		(route.title === "home" &&
