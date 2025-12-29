@@ -39,8 +39,10 @@ export const categoryCards = [
 const RecentlyViewed = () => {
 	return (
 		<div className="w-full">
-			<div className="w-full flex justify-between">
-				<h2 className="font-medium text-[24px] leading-8">Recently Viewed</h2>
+			<div className="w-full flex items-center justify-between">
+				<h2 className="font-medium text-xl md:text-[24px] leading-8">
+					Recently Viewed
+				</h2>
 				<Link
 					href="/en"
 					className="text-main-mediterranean-green text-sm capitalize"
