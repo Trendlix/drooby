@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import DragScrollRow from "../layout/DragScrollRow";
 
 export const savedChatsItems = [
 	{
@@ -56,8 +57,10 @@ export const savedChatsItems = [
 const SavedChats = () => {
 	return (
 		<div className="w-full">
-			<div className="w-full flex justify-between">
-				<h2 className="font-medium text-[24px] leading-8">Shopping Profiles</h2>
+			<div className="w-full flex items-center justify-between">
+				<h2 className="font-medium text-xl md:text-[24px] leading-8">
+					Shopping Profiles
+				</h2>
 				<Link
 					href="/en"
 					className="text-main-mediterranean-green text-sm capitalize"
@@ -66,11 +69,11 @@ const SavedChats = () => {
 					<ArrowRight className="w-4 h-4 inline ml-1" />
 				</Link>
 			</div>
-			<div className="w-full mt-6 pb-3 no-scrollbar grid grid-flow-col gap-5 overflow-x-auto">
+			<DragScrollRow className="mt-6 grid grid-flow-col 2xl:grid-cols-3 gap-5 cursor-grab 2xl:cursor-auto">
 				{savedChatsItems.map((chat, i) => (
 					<ChatCard {...chat} key={i} />
 				))}
-			</div>
+			</DragScrollRow>
 		</div>
 	);
 };

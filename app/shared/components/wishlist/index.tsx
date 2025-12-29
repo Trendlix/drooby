@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export const wishlistProfiles = [
 	{
@@ -143,6 +144,7 @@ export const wishlistProfiles = [
 	},
 ];
 const WishlistClient = () => {
+	const router = useRouter();
 	const [selectedProfile, setSelectedProfile] = useState("all");
 	const [selectedCategory, setSelectedCategory] = useState("all");
 	const [categories, setCategories] = useState<string[]>(() => {
@@ -230,7 +232,10 @@ const WishlistClient = () => {
 		<>
 			<div className="py-3 space-y-3">
 				<div className="pl-4 flex items-center justify-between">
-					<ArrowLeft className="text-black w-5 h-5" />
+					<ArrowLeft
+						className="text-black w-5 h-5 cursor-pointer"
+						onClick={() => router.back()}
+					/>
 					<h3 className="text-[#0A0A0A] leading-6">Wishlist</h3>
 					<Search className="w-5 h-5 text-black" />
 				</div>
@@ -398,20 +403,12 @@ const ProductCard = ({
 						<div className="flex items-center gap-3">
 							<Link
 								href="/en"
-								className="
-									w-full sm:w-auto
-									px-4 py-2
-									text-center
-									rounded-xl
-									text-white
-									text-sm
-									bg-main-mediterranean-green
-								"
+								className="w-full sm:w-[182px] h-[42px] px-3 py-2.5 text-center rounded-xl text-white text-sm bg-main-mediterranean-green"
 							>
 								Compare
 							</Link>
 
-							<button className="w-10 h-10 border border-[#00000057] rounded-xl grid place-items-center">
+							<button className="w-10 h-10 border border-[#F8F8F8] rounded-xl grid place-items-center">
 								<Share2 className="w-4 h-4 text-[#666666]" />
 							</button>
 						</div>

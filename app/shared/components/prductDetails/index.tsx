@@ -11,9 +11,11 @@ import {
 	Truck,
 } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const ProductDetails = () => {
+	const router = useRouter();
 	const productImgs = [
 		"/productDetails/iphone1.png",
 		"/productDetails/iphone2.png",
@@ -24,7 +26,10 @@ const ProductDetails = () => {
 		<>
 			<div className="px-8 pb-6 space-y-3 border-b border-[#E5E7EB]">
 				<div className="pl-4 flex items-center justify-between">
-					<ArrowLeft className="text-black w-5 h-5" />
+					<ArrowLeft
+						className="text-black w-5 h-5 cursor-pointer"
+						onClick={() => router.back()}
+					/>
 					<h3 className="text-[#0A0A0A] leading-6 font-semibold">
 						IPhone 16 - Product Details
 					</h3>

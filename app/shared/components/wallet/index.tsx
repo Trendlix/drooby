@@ -9,20 +9,25 @@ import {
 	Wallet as WalletIcon,
 } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 const Wallet = () => {
+	const router = useRouter();
 	return (
 		<>
 			<div className="px-4 sm:px-8 pb-6 space-y-3 border-b border-[#E5E7EB]">
 				<div className="flex items-center justify-between">
-					<ArrowLeft className="w-5 h-5" />
+					<ArrowLeft
+						className="text-black w-5 h-5 cursor-pointer"
+						onClick={() => router.back()}
+					/>
 					<h3 className="font-semibold">Wallet</h3>
 					<History className="w-5 h-5" />
 				</div>
 			</div>
 
 			<div className="px-4 sm:px-8 py-6 bg-[#F5F5F7]">
-				<div className="max-w-screen-lg mx-auto space-y-6">
+				<div className="max-w-350 mx-auto space-y-6">
 					<Banner />
 					<Warning />
 					<WalletTransactions />
@@ -78,7 +83,7 @@ const WalletTransactions = () => {
 	const filters = [
 		{ label: "Pending", value: "pending" },
 		{ label: "Active", value: "active" },
-		{ label: "Completed", value: "completed" },
+		{ label: "Confirmed", value: "confirmed" },
 	];
 	const [selectedFilter, setSelectedFilter] = useState("pending");
 	return (
@@ -141,7 +146,7 @@ const ProductCard = ({
 	};
 }) => {
 	return (
-		<div className="bg-white p-4 rounded-2xl shadow border border-[#E5E7EB]">
+		<div className="bg-white p-4 rounded-2xl shadow border border-[#E5E7EB] relative">
 			<div className="flex flex-col sm:flex-row gap-4">
 				<div className="relative w-full sm:w-[180px]">
 					<Image
@@ -172,13 +177,15 @@ const ProductCard = ({
 					</div>
 
 					<div className="flex justify-between items-center border-t border-t-[#E5E7EB] pt-3">
-						<p className="text-sm text-gray-500">Purchase Amount</p>
+						<p className="text-sm text-gray-500 font-semibold">
+							Purchase Amount
+						</p>
 						<p className="font-bold text-main-mediterranean-green">
 							{card.price} SAR
 						</p>
 					</div>
 
-					<p className="self-end font-bold text-main-mediterranean-green">
+					<p className="absolute self-end font-bold text-main-mediterranean-green top-6 right-4">
 						+ {card.discount} Point
 					</p>
 				</div>

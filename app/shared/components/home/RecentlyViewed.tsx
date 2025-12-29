@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import DragScrollRow from "../layout/DragScrollRow";
 
 export const categoryCards = [
 	{
@@ -39,8 +40,10 @@ export const categoryCards = [
 const RecentlyViewed = () => {
 	return (
 		<div className="w-full">
-			<div className="w-full flex justify-between">
-				<h2 className="font-medium text-[24px] leading-8">Recently Viewed</h2>
+			<div className="w-full flex items-center justify-between">
+				<h2 className="font-medium text-xl md:text-[24px] leading-8">
+					Recently Viewed
+				</h2>
 				<Link
 					href="/en"
 					className="text-main-mediterranean-green text-sm capitalize"
@@ -49,11 +52,11 @@ const RecentlyViewed = () => {
 					<ArrowRight className="w-4 h-4 inline ml-1" />
 				</Link>
 			</div>
-			<div className="w-full mt-6 grid grid-flow-col 2xl:grid-cols-6 gap-4 overflow-x-auto no-scrollbar">
+			<DragScrollRow className="mt-6 grid grid-flow-col 2xl:grid-cols-3 gap-5 cursor-grab 2xl:cursor-auto">
 				{categoryCards.map((category, i) => (
 					<CategoryCard category={category} key={i} />
 				))}
-			</div>
+			</DragScrollRow>
 		</div>
 	);
 };

@@ -2,6 +2,7 @@ import { ArrowRight, Heart, Share2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import DragScrollRow from "../layout/DragScrollRow";
 
 export const comparisonCards = [
 	{
@@ -30,8 +31,8 @@ export const comparisonCards = [
 const RecentComparisons = () => {
 	return (
 		<div className="w-full">
-			<div className="w-full flex justify-between">
-				<h2 className="font-medium text-[24px] leading-8">
+			<div className="w-full flex items-center justify-between">
+				<h2 className="font-medium text-xl md:text-[24px] leading-8">
 					Recent Comparisons
 				</h2>
 				<Link
@@ -42,11 +43,11 @@ const RecentComparisons = () => {
 					<ArrowRight className="w-4 h-4 inline ml-1" />
 				</Link>
 			</div>
-			<div className="w-full mt-6 grid grid-flow-col 2xl:grid-cols-3 no-scrollbar gap-5 overflow-x-auto">
+			<DragScrollRow className="mt-6 grid grid-flow-col 2xl:grid-cols-3 gap-5 cursor-grab 2xl:cursor-auto">
 				{comparisonCards.map((card, i) => (
 					<ComparisonCard card={card} key={i} />
 				))}
-			</div>
+			</DragScrollRow>
 		</div>
 	);
 };
