@@ -29,6 +29,12 @@ const RecipientsPage = () => {
   const isRTL = locale === "ar";
   const router = useRouter();
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedAvatar, setSelectedAvatar] = useState(0);
+  const [recipientName, setRecipientName] = useState("");
+
+  const avatars = ["👶", "👧", "👦", "👨", "👩", "👴"];
+
   const [profiles] = useState<RecipientProfile[]>([
     {
       id: "1",
@@ -67,7 +73,22 @@ const RecipientsPage = () => {
   ]);
 
   const handleAddProfile = () => {
-    console.log("Add new profile");
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setRecipientName("");
+    setSelectedAvatar(0);
+  };
+
+  const handleAddRecipient = () => {
+    if (recipientName.trim()) {
+      // Add new profile logic here
+      console.log("Adding recipient:", recipientName, "with avatar:", avatars[selectedAvatar]);
+      // You can add the new profile to the profiles array here
+      handleCloseModal();
+    }
   };
 
   const handleEdit = (id: string) => {
@@ -287,13 +308,13 @@ const RecipientsPage = () => {
               >
                 <button
                   onClick={() => handleViewWishlist(profile.id)}
-                  className="flex-1 px-4 py-2.5 bg-white dark:bg-main-casual-black border border-black/10 text-main-bold-gray rounded-lg text-sm font-medium hover:bg-main-mediterranean-green/5 transition-colors"
+                  className="flex-1 p-4 bg-white dark:bg-main-casual-black border border-black/10 text-main-bold-gray rounded-lg text-sm font-medium hover:bg-main-mediterranean-green/5 transition-colors"
                 >
                   View Wishlist
                 </button>
                 <button
                   onClick={() => handleShopFor(profile.id)}
-                  className="flex-1 px-4 py-2.5 bg-main-mediterranean-green text-white rounded-lg text-sm font-medium hover:bg-main-mediterranean-green-dark transition-colors"
+                  className="flex-1 p-4 bg-main-mediterranean-green text-white rounded-lg text-sm font-medium hover:bg-main-mediterranean-green-dark transition-colors"
                 >
                   Shop for {profile.name}
                 </button>
@@ -311,6 +332,87 @@ const RecipientsPage = () => {
           <span>Add New Profile</span>
         </button>
       </div>
+
+      {/* Add New Recipient Modal */}
+      {isModalOpen && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 dark:bg-black/70 p-4"
+          onClick={handleCloseModal}
+        >
+          <div 
+            className="bg-white dark:bg-main-black-charcoal rounded-2xl w-full max-w-md overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header with Gradient */}
+            <div className="bg-gradient-1 px-6 py-6">
+              <h2 className="text-xl font-bold text-white mb-1">
+                Add New Recipient
+              </h2>
+              <p className="text-sm text-white/90">
+                Create a profile for a family member
+              </p>
+            </div>
+
+            {/* Modal Content */}
+            <div className="px-6 py-6 space-y-6">
+              {/* Choose Avatar Section */}
+              <div>
+                <label className="block text-sm font-medium text-main-true-black dark:text-main-white-marble mb-3">
+                  Choose Avatar
+                </label>
+                <div className={clsx("flex gap-3 overflow-x-auto", isRTL && "flex-row-reverse")}>
+                  {avatars.map((avatar, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setSelectedAvatar(index)}
+                      className={clsx(
+                        "w-14 h-14 rounded-xl flex items-center justify-center text-2xl transition-all shrink-0",
+                        selectedAvatar === index
+                          ? "border-2 border-main-mediterranean-green  bg-main-mediterranean-green/10"
+                          : "bg-main-titanium-white dark:bg-main-casual-black border border-main-white-marble/60 dark:border-main-casual-black/60 hover:border-main-mediterranean-green/50"
+                      )}
+                      aria-label={`Select avatar ${index + 1}`}
+                    >
+                      {avatar}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Name Input Section */}
+              <div>
+                <label className="block text-sm font-medium text-main-true-black dark:text-main-white-marble mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  value={recipientName}
+                  onChange={(e) => setRecipientName(e.target.value)}
+                  placeholder="Enter name"
+                  className="w-full px-4 py-3 border border-main-white-marble/60 dark:border-main-casual-black/60 rounded-lg bg-white dark:bg-main-casual-black text-main-true-black dark:text-main-white-marble placeholder:text-main-bold-gray focus:outline-none focus:ring-2 focus:ring-main-mediterranean-green focus:border-transparent transition-all"
+                />
+              </div>
+
+              {/* Action Buttons */}
+              <div className={clsx("flex gap-3 pt-2", isRTL && "flex-row-reverse")}>
+                <button
+                  onClick={handleCloseModal}
+                  className="flex-1 px-4 py-3 bg-white dark:bg-main-casual-black border border-main-white-marble/60 dark:border-main-casual-black/60 text-main-bold-gray dark:text-main-white-marble rounded-lg font-medium hover:bg-main-titanium-white dark:hover:bg-main-black-charcoal transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleAddRecipient}
+                  disabled={!recipientName.trim()}
+                  className="flex-1 px-4 py-3 bg-gradient-1 text-white rounded-lg font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Add Recipient
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

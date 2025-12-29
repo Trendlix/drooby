@@ -43,7 +43,7 @@ const NotificationsPage = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-white md:bg-main-titanium-white dark:bg-main-casual-black">
+    <div className="flex flex-col h-screen bg-white md:bg-main-titanium-white dark:bg-main-casual-black pb-5">
       <NotificationsHeader
         unreadCount={unreadCount}
         onMarkAllAsRead={handleMarkAllAsRead}

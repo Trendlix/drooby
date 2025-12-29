@@ -1,4 +1,5 @@
 import { IUserData } from "../../types/profile";
+import ProfileImage from "../../../../assets/images/profile.jpg";
 
 export const userData: IUserData = {
     name: "Sarah Ahmed",
@@ -10,5 +11,6 @@ export const userData: IUserData = {
     walletBalance: "450 SAR",
     ordersCount: 12,
     activeCoupons: 5,
+    avatarUrl: ProfileImage.src,
 };
 

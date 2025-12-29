@@ -9,24 +9,24 @@ import clsx from "clsx";
 
 
 export default async function LocaleLayout({
-    children,
-    params
+	children,
+	params,
 }: {
-    children: React.ReactNode;
-    params: Promise<{ locale: string }>
+	children: React.ReactNode;
+	params: Promise<{ locale: string }>;
 }) {
 
     const { locale } = await params;
     const isEnglish = locale === "en";
 
-    const messages = await getMessages();
+	const messages = await getMessages();
 
     return (
         <ThemeProvider attribute="class" defaultTheme="light">
             <NextIntlClientProvider messages={messages} locale={locale}>
                 <div className={clsx(isEnglish && "font-roc-grotesk")}>
                     <ThemeWave />
-                    <ThemeSwitcher />
+                    {/* <ThemeSwitcher /> */}
                     <div className="flex min-h-screen">
                         <Sidebar />
                         <main className="flex-1 pb-20 lg:pb-0">

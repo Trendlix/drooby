@@ -1,6 +1,6 @@
 import {
     Users,
-    Clock,
+    History,
     Wallet,
     Tag,
     Bell,
@@ -21,7 +21,7 @@ export const getMenuItemsConfig = (): IMenuItemsConfig => {
                 href: "/recipients",
             },
             {
-                icon: Clock,
+                icon: History,
                 titleKey: "purchaseHistory",
                 descriptionKey: "purchaseHistoryDesc",
                 href: "/history",

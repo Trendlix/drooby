@@ -26,7 +26,7 @@ const PrivacyPage = () => {
   const isRTL = locale === "ar";
 
   return (
-    <div className="bg-main-titanium-white pb-4 sm:pb-6 md:pb-8">
+    <div className="bg-[#F8F8F8]  pb-4 sm:pb-6 md:pb-8">
       <div className={clsx("mx-auto", isRTL && "text-right")}>
         <PrivacyHeader />
 

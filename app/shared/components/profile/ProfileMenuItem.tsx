@@ -54,7 +54,7 @@ export const ProfileMenuItem = ({
     "bg-main-white dark:bg-main-black-charcoal",
     "border-b border-main-white-marble dark:border-main-casual-black",
     "transition-colors duration-200 cursor-pointer",
-    "active:scale-[0.98]"
+  
   );
 
   if (href) {
