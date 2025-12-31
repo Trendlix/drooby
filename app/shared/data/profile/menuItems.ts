@@ -1,16 +1,20 @@
 import {
-    Users,
-    Wallet,
-    Tag,
-    Bell,
-    Settings,
-    Shield,
-    HelpCircle,
-    MessageCircle,
+
+	Users,
+	Wallet,
+	Tag,
+	Bell,
+	Settings,
+	Shield,
+	HelpCircle,
+	MessageCircle,
+	
+
 } from "lucide-react";
 import type { IMenuItemsConfig } from "../../types/profile";
 
 export const getMenuItemsConfig = (): IMenuItemsConfig => {
+
     return {
         account: [
             {
@@ -73,5 +77,5 @@ export const getMenuItemsConfig = (): IMenuItemsConfig => {
             },
         ],
     };
-};
 
+};
