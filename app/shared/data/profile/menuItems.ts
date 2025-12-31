@@ -1,6 +1,5 @@
 import {
     Users,
-    History,
     Wallet,
     Tag,
     Bell,
@@ -20,12 +19,12 @@ export const getMenuItemsConfig = (): IMenuItemsConfig => {
                 descriptionKey: "recipientProfilesDesc",
                 href: "/recipients",
             },
-            {
-                icon: History,
-                titleKey: "purchaseHistory",
-                descriptionKey: "purchaseHistoryDesc",
-                href: "/history",
-            },
+            // {
+            //     icon: History,
+            //     titleKey: "purchaseHistory",
+            //     descriptionKey: "purchaseHistoryDesc",
+            //     href: "/history",
+            // },
             {
                 icon: Wallet,
                 titleKey: "walletCashback",
@@ -50,9 +49,7 @@ export const getMenuItemsConfig = (): IMenuItemsConfig => {
                 icon: Settings,
                 titleKey: "appSettings",
                 descriptionKey: "appSettingsDesc",
-                onClick: () => {
-                    console.log("Settings clicked");
-                },
+                href: "/profile/app-settings",
             },
             {
                 icon: Shield,
