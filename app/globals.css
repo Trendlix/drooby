@@ -72,3 +72,8 @@ body {
 .thin-scrollbar::-webkit-scrollbar-thumb:hover {
 	background-color: #a8a8a8;
 }
+
+.font-roc-grotesk,
+.font-roc-grotesk * {
+	font-family: var(--font-roc-grotesk), Arial, Helvetica, sans-serif;
+}
